@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template
+from flask import Blueprint, render_template
 
 portfolio_blueprint = Blueprint('portfolio', __name__)
 
