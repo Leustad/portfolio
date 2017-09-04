@@ -19,7 +19,8 @@ dt {
     white-space: nowrap;
     /*width: 200px;*/
 }
-.jumbotron{
+
+.jumbotron {
     background-color: #f8f8f8;
 }
 
@@ -48,6 +49,11 @@ ul#footer-list li {
     padding-right: 20px;
 }
 
+.gap {
+    margin-top: 100px;
+    display: block;
+}
+
 .hr-footer {
     border-top: 1px solid #8c8b8b;
     text-align: center;
@@ -66,10 +72,15 @@ ul#footer-list li {
     -moz-transform: rotate(60deg);
     transform: rotate(60deg);
 }
+
 .back-to-top {
     cursor: pointer;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    display:none;
+    display: none;
+}
+
+.to-be-continued {
+    margin-top: 100px;
 }
