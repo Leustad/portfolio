@@ -1,13 +1,15 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Corben', Georgia, Times, serif;
+    font-family: 'Archivo Black', Georgia, Times, serif;
 }
 
 p, div {
-    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    font-family: 'Lora', Helvetica, Arial, sans-serif;
+    color: #302C0C;
+    font-size: 18px;
 }
 
 body {
-    background-color: #f0f0f0;
+    background-color: #f8f8f8;
 }
 
 dt {
@@ -16,6 +18,9 @@ dt {
     Text-overflow: ellipsis;
     white-space: nowrap;
     /*width: 200px;*/
+}
+.jumbotron{
+    background-color: #f8f8f8;
 }
 
 .portfolio_items {
@@ -54,7 +59,7 @@ ul#footer-list li {
     position: relative;
     top: -14px;
     padding: 0 10px;
-    background: #f0f0f0;
+    background: #f8f8f8;
     color: #8c8b8b;
     font-size: 18px;
     -webkit-transform: rotate(60deg);
