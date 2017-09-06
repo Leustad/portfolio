@@ -2,5 +2,9 @@
 {% block title %}Blog{% endblock %}
 
 {% block content%}
-    <h2>Blog is Under Construction</h2>
+    {{ post.html|safe }}
+{#    {{ post.title }}#}
+{#    {{ post.date }}#}
+
+    <a href="/blogs"><< Go Back</a>
 {% endblock %}
