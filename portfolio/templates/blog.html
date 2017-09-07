@@ -1,10 +1,12 @@
 {% extends '_base.html' %}
 {% block title %}Blog{% endblock %}
 
-{% block content%}
+{% block content %}
+    <h2 class="text-primary">{{ post.title }}</h2>
+    <small class="text-muted">{{ post.date }}</small>
+    <br>
     {{ post.html|safe }}
-{#    {{ post.title }}#}
-{#    {{ post.date }}#}
+    <br>
 
     <a href="/blogs"><< Go Back</a>
 {% endblock %}
