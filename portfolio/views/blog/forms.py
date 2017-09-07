@@ -1,9 +1,15 @@
+import datetime
+
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField, FileAllowed, FileRequired
-from wtforms import StringField, TextAreaField
+from wtforms import TextAreaField, TextField
 from wtforms.validators import DataRequired, Length
-from wtforms.fields.html5 import DateField
+
+
+def get_date():
+    return 'date: ' + datetime.datetime.today().strftime('%Y-%m-%d')
 
 
 class AddPostForm(FlaskForm):
-    test = TextAreaField('post', validators=[DataRequired(), Length(min=6,)])
+    blog_title = TextField('bolg_title', validators=[DataRequired(), Length(min=6,)])
+    # blog_date = DateField('blog_date', validators=[DataRequired()])
+    blog_body = TextAreaField('post_body', validators=[DataRequired(), Length(min=6,)], default=get_date())

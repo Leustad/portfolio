@@ -2,6 +2,46 @@
 {% block title %}Add Post{% endblock %}
 
 {% block content %}
-    {{ form.csrf_token }}
-    <h2>Add post goes here - Under Construction</h2>
+    <div class="container-fluid">
+        <form class="form-horizontal" enctype="multipart/form-data" role="form" action="/admin/add_post" method="post"
+              name="add_post">
+            {{ form.csrf_token }}
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Add Post</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="blog-title">Title</label>
+                    <div class="col-md-10">
+                        {{ form.blog_title(class_="form-control input-md") }}
+                    </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="blog-body"></label>
+                    <div class="col-md-10">
+                        {{ form.blog_body(class_="from-control" ) }}
+                    </div>
+                </div>
+
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Save-btn"></label>
+                    <div class="col-md-10">
+                        <button id="cancel-btn" name="cancel-btn" class="btn btn-danger" type="reset" value="reset">
+                            Cancel
+                        </button>
+                        <button id="Save-btn" name="Save-btn" class="btn btn-success" type="submit" value="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        <a href="/blogs"><< Go Back</a>
+    </div>
 {% endblock %}

@@ -1,7 +1,7 @@
 title: Testing Title
 date: 2013-08-27
 
-# Testing Title
+### important Headline
 
 American-style dates, I know, I know. Here you can write markdown code, including *italics* and **bold**
 
