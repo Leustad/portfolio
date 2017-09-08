@@ -3,6 +3,7 @@
 
 {% block content %}
     <div class="container-fluid">
+        <p class="text-right"><a href="/logout">>> Logout</a></p>
         <form class="form-horizontal" enctype="multipart/form-data" role="form" action="/admin/add_post" method="post"
               name="add_post">
             {{ form.csrf_token }}
