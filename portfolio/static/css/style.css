@@ -38,7 +38,7 @@ dt {
 }
 
 ul#footer-list {
-    min-width: 696px;
+    /*min-width: 696px;*/
     list-style: none;
     padding-left: 0;
     /*padding-top: 20px;*/
@@ -83,4 +83,9 @@ ul#footer-list li {
 
 .to-be-continued {
     margin-top: 100px;
+}
+
+#blog_body {
+    width: 100%;
+    height: 500px;
 }

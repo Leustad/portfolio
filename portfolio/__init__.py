@@ -1,14 +1,18 @@
 import os
+
 from flask import Flask
+from flask_flatpages import FlatPages, pygments_style_defs
+from flask_frozen import Freezer
+from flask_bcrypt import Bcrypt
 # from flask_sqlalchemy import SQLAlchemy
-# from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
+flatpages = FlatPages(app)
+freezer = Freezer(app)
 print('__APP_SETTINGS__: {}'.format(os.environ['APP_SETTINGS']))
-# app.secret_key = os.urandom(24)
-# app.config.from_pyfile('_config.py')
-# bcrypt = Bcrypt(app)
+
+bcrypt = Bcrypt(app)
 # db = SQLAlchemy(app)
 
 from portfolio.views.main.views import main_blueprint
