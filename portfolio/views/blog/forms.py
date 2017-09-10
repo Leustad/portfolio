@@ -10,8 +10,7 @@ def get_date():
 
 
 class AddPostForm(FlaskForm):
-    blog_title = TextField('bolg_title', validators=[DataRequired(), Length(min=6,)])
-    # blog_date = DateField('blog_date', validators=[DataRequired()])
+    blog_title = StringField('bolg_title', validators=[DataRequired(), Length(min=6,)])
     blog_body = TextAreaField('post_body', validators=[DataRequired(), Length(min=6,)], default=get_date())
 
 
