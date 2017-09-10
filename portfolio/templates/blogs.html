@@ -2,11 +2,12 @@
 {% block title %}Blogs{% endblock %}
 
 {% block content %}
+    <h1 class="text-primary text-center">POSTS</h1>
     {% for post in posts %}
-        > <a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+        <h3><a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
         {{ post.title }}
     </a>
-        <small> - {{ post.date }}</small>
+        <small class="text-muted"> - {{ post.date }}</small></h3>
         <br>
     {% endfor %}
 {% endblock %}
