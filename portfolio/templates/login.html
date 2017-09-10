@@ -5,6 +5,10 @@
     {% if session['logged_in'] %}
         <p>You're logged in already!</p>
     {% else %}
+    {% if error != None %}
+        <p class="text-center text-danger">{{ error }}</p>
+    {% endif %}
+    <br>
         <form action="/admin/login" method="POST">
             <fieldset>
                 {{ form.csrf_token }}
