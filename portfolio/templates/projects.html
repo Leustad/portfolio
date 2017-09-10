@@ -2,10 +2,11 @@
 {% block title %}Projects{% endblock %}
 
 {% block content %}
-    <h1 class="text-center">PROJECTS</h1>
+    <h1 class="text-center text-primary">PROJECTS</h1>
+    {% include 'extras/info.html' %}
     <div class="alert alert-info">
-        Sites hosted by <strong>Heroku</strong> is working with unpaid Dynos so they are probably sleeping. It takes a
-        few seconds to bring them back up. Only 1 dyno can run at any time.
+        Sites hosted by <strong>Heroku</strong> is working with Free Dynos so they are probably sleeping. It takes a
+        few seconds to wake them back up.
     </div>
     <div class="alert alert-info">
         Most of my pet projects have been developed on private BitBucket repositories. Recently I've added them to
