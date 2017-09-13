@@ -3,11 +3,18 @@
 
 {% block content %}
     <h1 class="text-primary text-center">POSTS</h1>
-    {% for post in posts %}
-        <h3><a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
-        {{ post.title }}
-    </a>
-        <small class="text-muted"> - {{ post.date }}</small></h3>
-        <br>
-    {% endfor %}
+    {% if posts %}
+        {% for post in posts %}
+            <h3><a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+                {{ post.title }}
+            </a>
+                <small class="text-muted"> - {{ post.date }}</small>
+                {% if session['logged_in'] %}
+                    -- <small class="text-muted"><a href="/delete/{{ post.path.replace('posts/', '') }}">X</a> / <a
+                        href="edit/{{ post.path.replace('posts/', '') }}"> Edit</a></small>
+                {% endif %}
+            </h3>
+            <br>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

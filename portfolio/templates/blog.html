@@ -2,7 +2,9 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-    <h2 class="text-primary">{{ post.title }}</h2>
+    <h2 class="text-primary">{{ post.title }}{% if session['logged_in'] %}
+        <small> - <a class="test-muted" href="/edit/{{ post.title }}">Edit</a></small>{% endif %}
+    </h2>
     <small class="text-muted">{{ post.date }}</small>
     <br>
     {{ post.html|safe }}

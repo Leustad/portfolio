@@ -6,7 +6,6 @@ from flask import render_template, Blueprint, request, redirect, url_for, sessio
 from portfolio.views.blog.forms import AddPostForm, LoginForm
 from portfolio import flatpages, app, bcrypt
 
-
 blog_blueprint = Blueprint('blog', __name__)
 POST_DIR = app.config['POST_DIR']
 
@@ -28,13 +27,13 @@ def login_required(test):
 
 def save_post(title, body):
     basedir = os.path.abspath(os.path.dirname(__file__))
-    file_name = str(title) + '.md'
+    file_name = str(title).rstrip('\n') + '.md'
     write_path = os.path.join(basedir, 'content', 'posts', file_name)
     print('write path: ' + write_path)
-
+    body1 = body.splitlines()
     with open(write_path, 'w') as f:
         f.write('title: ' + title + '\n')
-        f.write(body)
+        f.write('\r'.join(body1))
 
 
 @blog_blueprint.route('/blogs', methods=['GET'])
@@ -90,3 +89,45 @@ def login():
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('main.main'))
+
+
+def find_the_post(name):
+    path = '{}/{}'.format(POST_DIR, name)
+    return flatpages.get_or_404(path)
+
+
+def delete_post(title):
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    path_to_remove = os.path.join(basedir, 'content', 'posts', title + '.md')
+    os.remove(path_to_remove)
+
+
+@blog_blueprint.route('/edit/<title>', methods=['GET', 'POST'])
+@login_required
+def edit(title):
+    path = '{}/{}'.format(POST_DIR, title)
+    post = flatpages.get_or_404(path)
+
+    title = post['title'].rstrip()
+    date = post['date']
+    body = 'date: ' + str(date) + '\n\n' + post.body
+
+    form = AddPostForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        save_post(form.blog_title.data, form.blog_body.data)
+        return redirect('/blog/{}'.format(post['title']))
+
+    form.blog_title.data = title
+    form.blog_body.data = body
+    return render_template('edit_post.html', form=form)
+
+
+@blog_blueprint.route('/delete/<title>')
+@login_required
+def delete(title):
+    error = None
+    try:
+        delete_post(title)
+    except FileNotFoundError as e:
+        print(e)
+    return redirect(url_for('blog.main'))
