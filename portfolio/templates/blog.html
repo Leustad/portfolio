@@ -2,12 +2,14 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-    <h2 class="text-primary">{{ post.title }}{% if session['logged_in'] %}
-        <small> - <a class="test-muted" href="/edit/{{ post.title }}">Edit</a></small>{% endif %}
+    <h2 class="text-primary">{{ post_title.replace('.md', '') }}{% if session['logged_in'] %}
+        <small> - <a class="test-muted" href="/edit/{{ post_title }}">Edit</a></small>{% endif %}
     </h2>
-    <small class="text-muted">{{ post.date }}</small>
     <br>
-    {{ post.html|safe }}
+{#    {{ post_body | safe }}#}
+    {% for line in post_body %}
+        {{ line.replace("b'", "").replace("'", "") | safe }}<br>
+    {% endfor %}
     <br>
 
     <a href="/blogs"><< Go Back</a>

@@ -1,18 +1,43 @@
-import os
 import traceback
 from functools import wraps
 
 from flask import render_template, Blueprint, request, redirect, url_for, session, flash
-from portfolio.views.blog.forms import AddPostForm, LoginForm
-from portfolio import flatpages, app, bcrypt
+from bs4 import BeautifulSoup
+import bleach
 
+from portfolio.views.blog.forms import AddPostForm, LoginForm
+from portfolio import app, bcrypt
 from portfolio.aws_funcs import aws_func
 
 blog_blueprint = Blueprint('blog', __name__)
-POST_DIR = app.config['POST_DIR']
 
 usrname = app.config['USRNAME']
 smth = app.config['SMTH']
+
+VALID_TAGS = ['a', 'abbr', 'acronym', 'address', 'area', 'b', 'big',
+              'blockquote', 'br', 'button', 'caption', 'center', 'cite', 'code', 'col',
+              'colgroup', 'dd', 'del', 'dfn', 'dir', 'div', 'dl', 'dt', 'em',
+              'font', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'i', 'img',
+              'ins', 'kbd', 'label', 'legend', 'li', 'map', 'menu', 'ol',
+              'p', 'pre', 'q', 's', 'samp', 'small', 'span', 'strike',
+              'strong', 'sub', 'sup', 'table', 'tbody', 'td', 'tfoot', 'th',
+              'thead', 'tr', 'tt', 'u', 'ul', 'var', 'iframe', 'frameborder', 'allowfullscreen']
+
+VALID_ATTRIBUTES = ['abbr', 'accept', 'accept-charset', 'accesskey',
+                    'action', 'align', 'alt', 'axis', 'border', 'cellpadding', 'cellspacing',
+                    'char', 'charoff', 'charset', 'checked', 'cite', 'clear', 'cols',
+                    'colspan', 'color', 'compact', 'coords', 'datetime', 'dir',
+                    'enctype', 'for', 'headers', 'height', 'href', 'hreflang', 'hspace',
+                    'id', 'ismap', 'label', 'lang', 'longdesc', 'maxlength', 'method',
+                    'multiple', 'name', 'nohref', 'noshade', 'nowrap', 'prompt',
+                    'rel', 'rev', 'rows', 'rowspan', 'rules', 'scope', 'shape', 'size',
+                    'span', 'src', 'start', 'summary', 'tabindex', 'target', 'title', 'type',
+                    'usemap', 'valign', 'value', 'vspace', 'width']
+
+
+def sanitize_html(value):
+    soup = BeautifulSoup(bleach.clean(value, tags=VALID_TAGS, attributes=VALID_ATTRIBUTES), "html5lib")
+    return soup.renderContents()
 
 
 def login_required(test):
@@ -29,18 +54,18 @@ def login_required(test):
 
 @blog_blueprint.route('/blogs', methods=['GET'])
 def main():
-    # for i in aws_func.get_all_posts():
-    #     print(i)
-    posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
-    posts.sort(key=lambda item: item['date'], reverse=True)
+    posts = aws_func.get_all_posts()
     return render_template('blogs.html', posts=posts)
 
 
 @app.route('/blog/<name>/')
 def post(name):
-    path = '{}/{}'.format(POST_DIR, name)
-    post = flatpages.get_or_404(path)
-    return render_template('blog.html', post=post)
+    content = []
+    post_title, post_body = aws_func.get_single_post(name)
+    post_body = post_body.split('\r\n')
+    for line in post_body:
+        content.append(str(sanitize_html(line)))
+    return render_template('blog.html', post_title=post_title, post_body=content)
 
 
 @blog_blueprint.route('/admin/add_post', methods=['GET', 'POST'])
@@ -52,10 +77,10 @@ def add_post():
         print('Received new post data')
         blog_title = form.blog_title.data
         blog_body = form.blog_body.data
-        print('blog body:' + blog_body)
         try:
             aws_func.upload_to_s3(blog_title, blog_body)
         except Exception as e:
+            print(e)
             traceback.print_exc()
         return redirect(url_for('blog.add_post'))
 
@@ -84,43 +109,34 @@ def logout():
     return redirect(url_for('main.main'))
 
 
-def find_the_post(name):
-    path = '{}/{}'.format(POST_DIR, name)
-    return flatpages.get_or_404(path)
-
-
-def delete_post(title):
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    path_to_remove = os.path.join(basedir, 'content', 'posts', title + '.md')
-    os.remove(path_to_remove)
-
-
 @blog_blueprint.route('/edit/<title>', methods=['GET', 'POST'])
 @login_required
 def edit(title):
-    path = '{}/{}'.format(POST_DIR, title)
-    post = flatpages.get_or_404(path)
+    # TODO: S3 file manipulation can only be done with deleting and adding the new file.
 
-    title = post['title'].rstrip()
-    date = post['date']
-    body = 'date: ' + str(date) + '\n\n' + post.body
-
-    form = AddPostForm()
-    if request.method == 'POST' and form.validate_on_submit():
-        # save_post(form.blog_title.data, form.blog_body.data)
-        return redirect('/blog/{}'.format(post['title']))
-
-    form.blog_title.data = title
-    form.blog_body.data = body
-    return render_template('edit_post.html', form=form)
+    # path = '{}/{}'.format(POST_DIR, title)
+    # # post = flatpages.get_or_404(path)
+    #
+    # title = post['title'].rstrip()
+    # date = post['date']
+    # body = 'date: ' + str(date) + '\n\n' + post.body
+    #
+    # form = AddPostForm()
+    # if request.method == 'POST' and form.validate_on_submit():
+    #     # save_post(form.blog_title.data, form.blog_body.data)
+    #     return redirect('/blog/{}'.format(post['title']))
+    #
+    # form.blog_title.data = title
+    # form.blog_body.data = body
+    # return render_template('edit_post.html', form=form)
+    return redirect(url_for('main.main'))
 
 
 @blog_blueprint.route('/delete/<title>')
 @login_required
 def delete(title):
-    error = None
     try:
-        delete_post(title)
-    except FileNotFoundError as e:
+        aws_func.delete_from_s3(title)
+    except Exception as e:
         print(e)
     return redirect(url_for('blog.main'))

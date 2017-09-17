@@ -5,13 +5,15 @@
     <h1 class="text-primary text-center">POSTS</h1>
     {% if posts %}
         {% for post in posts %}
-            <h3><a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
-                {{ post.title }}
+            <h3><a href="{{ url_for('post', name=post.key.replace('.md', '')) }}">
+                {{ post.key.replace('.md', '') }}
             </a>
-                <small class="text-muted"> - {{ post.date }}</small>
+                <small class="text-muted"> - {{ post.last_modified }}</small>
                 {% if session['logged_in'] %}
-                    -- <small class="text-muted"><a href="/delete/{{ post.path.replace('posts/', '') }}">X</a> / <a
-                        href="edit/{{ post.path.replace('posts/', '') }}"> Edit</a></small>
+                    --
+                    <small class="text-muted"><a href="/delete/{{ post.key.replace('.md', '') }}">X</a>
+{#                    / <a href="edit/{{ post.key.replace('.md', '') }}"> Edit</a>#}
+                    </small>
                 {% endif %}
             </h3>
             <br>
