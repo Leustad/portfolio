@@ -8,7 +8,7 @@
             <h3><a href="{{ url_for('post', name=post.key.replace('.md', '')) }}">
                 {{ post.key.replace('.md', '') }}
             </a>
-                <small class="text-muted"> - {{ post.last_modified }}</small>
+                <small class="text-muted"> - {{ post.last_modified.strftime('%Y-%m-%d') }}</small>
                 {% if session['logged_in'] %}
                     --
                     <small class="text-muted"><a href="/delete/{{ post.key.replace('.md', '') }}">X</a>
