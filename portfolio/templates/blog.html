@@ -8,7 +8,7 @@
     <br>
 {#    {{ post_body | safe }}#}
     {% for line in post_body %}
-        {{ line.replace("b'", "").replace("'", "") | safe }}<br>
+        {{ line.replace("b'", "").replace("'", "") | safe }}
     {% endfor %}
     <br>
 
