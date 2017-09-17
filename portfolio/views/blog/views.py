@@ -26,9 +26,9 @@ def login_required(test):
 
 
 def save_post(title, body):
-    basedir = os.path.abspath(os.path.dirname(__file__))
+    basedir = os.path.abspath(app.root_path)
     file_name = str(title).rstrip('\n') + '.md'
-    write_path = os.path.join(basedir, 'content', 'posts', file_name)
+    write_path = os.path.join(basedir, 'views', 'blog', 'content', 'posts', file_name)
     print('write path: ' + write_path)
     body1 = body.splitlines()
     with open(write_path, 'w') as f:
@@ -97,8 +97,9 @@ def find_the_post(name):
 
 
 def delete_post(title):
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    path_to_remove = os.path.join(basedir, 'content', 'posts', title + '.md')
+    basedir = os.path.abspath(app.root_path)
+    print('basedir: ', basedir)
+    path_to_remove = os.path.join(basedir, 'views', 'blog', 'content', 'posts', title + '.md')
     os.remove(path_to_remove)
 
 
