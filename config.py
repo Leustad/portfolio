@@ -12,7 +12,7 @@ class Config(object):
     CSRF_ENABLED = True
     SECRET_KEY = os.urandom(24)
     FLATPAGES_EXTENSION = '.md'
-    FLATPAGES_ROOT = 'views/blog/content'
+    FLATPAGES_ROOT = 'https://s3.console.aws.amazon.com/s3/buckets/leustad-portfolio/posts'
     POST_DIR = 'posts'
     SMTH = b'$2b$12$D9fukiXJ5Ik7LE1FpjgIB.xhZg1ln2pTCd/J3IVXAbun3dWSNxml6'
     USRNAME = b'$2b$12$mqF/WBETzPrANdYsueTO1u/jDIe.sVUyvq1fgTDEKccSWkvREqhB6'

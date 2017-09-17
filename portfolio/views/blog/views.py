@@ -6,6 +6,8 @@ from flask import render_template, Blueprint, request, redirect, url_for, sessio
 from portfolio.views.blog.forms import AddPostForm, LoginForm
 from portfolio import flatpages, app, bcrypt
 
+from portfolio.aws_funcs import aws_func
+
 blog_blueprint = Blueprint('blog', __name__)
 POST_DIR = app.config['POST_DIR']
 
@@ -25,19 +27,10 @@ def login_required(test):
     return wrap
 
 
-def save_post(title, body):
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    file_name = str(title).rstrip('\n') + '.md'
-    write_path = os.path.join(basedir, 'content', 'posts', file_name)
-    print('write path: ' + write_path)
-    body1 = body.splitlines()
-    with open(write_path, 'w') as f:
-        f.write('title: ' + title + '\n')
-        f.write('\r'.join(body1))
-
-
 @blog_blueprint.route('/blogs', methods=['GET'])
 def main():
+    # for i in aws_func.get_all_posts():
+    #     print(i)
     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
     posts.sort(key=lambda item: item['date'], reverse=True)
     return render_template('blogs.html', posts=posts)
@@ -61,7 +54,7 @@ def add_post():
         blog_body = form.blog_body.data
         print('blog body:' + blog_body)
         try:
-            save_post(blog_title, blog_body)
+            aws_func.upload_to_s3(blog_title, blog_body)
         except Exception as e:
             traceback.print_exc()
         return redirect(url_for('blog.add_post'))
@@ -114,7 +107,7 @@ def edit(title):
 
     form = AddPostForm()
     if request.method == 'POST' and form.validate_on_submit():
-        save_post(form.blog_title.data, form.blog_body.data)
+        # save_post(form.blog_title.data, form.blog_body.data)
         return redirect('/blog/{}'.format(post['title']))
 
     form.blog_title.data = title
