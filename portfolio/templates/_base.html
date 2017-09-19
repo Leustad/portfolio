@@ -15,7 +15,8 @@
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
-
+    {% block script %}{% endblock %}
+        
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106737274-1"></script>
     <script>
