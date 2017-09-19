@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,62 +9,72 @@
     <title>Snowy | {% block title %}{% endblock %}</title>
 
     <meta name="description" content="">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-    {# CSS #}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"> {# CSS #}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" /> {# JS #}
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-    {# FONTS #}
-    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106737274-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    <link href="http://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Archivo Black" rel="stylesheet" type="text/css">
+        function gtag() {
+            dataLayer.push(arguments)
+        };
+        gtag('js', new Date());
 
-    {# JS #}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        gtag('config', 'UA-106737274-1');
+    </script>
 
 </head>
+
 <body>
-<nav class="navbar navbar-inverse test">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+    <nav class="navbar navbar-inverse test">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Snowy.Land</a>
+                <a class="navbar-brand" href="/">Snowy.Land</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="/">/ Home</a></li>
+                    <li class=""><a href="/portfolio">/ Portfolio</a></li>
+                    <li class=""><a href="/projects">/ Projects</a></li>
+                    <li class=""><a href="/blogs">/ Blog</a></li>
+                    <li class=""><a href="/favorites">/ Favorites</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class=""><a href="/">/ Home</a></li>
-                <li class=""><a href="/portfolio">/ Portfolio</a></li>
-                <li class=""><a href="/projects">/ Projects</a></li>
-                <li class=""><a href="/blogs">/ Blog</a></li>
-                <li class=""><a href="/favorites">/ Favorites</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="col-md-6 col-md-offset-3 container-fluid main-content">
-    {% block content %}
-    {% endblock %}
+    </nav>
+    <div class="col-md-6 col-md-offset-3 container-fluid main-content">
+        {% block content %} {% endblock %}
 
-    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" data-placement="left"><span
+        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" data-placement="left"><span
             class="glyphicon glyphicon-chevron-up"></span></a>
-    <span class="gap"></span>
+        <span class="gap"></span>
 
-    <div class="footer">
-        <hr class="hr-footer">
-        <div class="footer-table">
-            {% include 'extras/footer.html' %}
+        <div class="footer">
+            <hr class="hr-footer">
+            <div class="footer-table">
+                {% include 'extras/footer.html' %}
+            </div>
         </div>
     </div>
-</div>
+    {# FONTS #}
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet">
 
+    <link href="http://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Archivo Black" rel="stylesheet">
 
 </body>
+
 </html>
