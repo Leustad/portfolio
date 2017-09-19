@@ -1,8 +1,9 @@
-h1, h2, h3, h4, h5, h6 {
+h1,h2,h3,h4,h5,h6 {
     font-family: 'Archivo Black', Georgia, Times, serif;
 }
 
-p, div {
+p,
+div {
     font-family: 'Lora', Helvetica, Arial, sans-serif;
     color: #302C0C;
     font-size: 18px;
@@ -11,34 +12,18 @@ p, div {
 html {
     height: 100%;
     margin: 0;
-    /*background: linear-gradient(#00002e 0%, #001238 12.5%, #021e45 25%, #06264c 37.5%, #0b335b 50%, #154870 75%, #1d638b 100%) no-repeat fixed;*/
-
-    /*background: -webkit-linear-gradient(-20deg, black, whitesmoke, lightblue); !* For Safari 5.1 to 6.0 *!*/
-    /*background: -o-linear-gradient(20deg, black, whitesmoke, lightblue); !* For Opera 11.1 to 12.0 *!*/
-    /*background: -moz-linear-gradient(20deg, black, whitesmoke, lightblue); !* For Firefox 3.6 to 15 *!*/
-    /*background: linear-gradient(-20deg, black, whitesmoke, lightblue); !* Standard syntax *!*/
-
-    /*background: #2c3e50; !* fallback for old browsers *!*/
-    /*background: -webkit-linear-gradient(to bottom, #2c3e50, #3498db); !* Chrome 10-25, Safari 5.1-6 *!*/
-    /*background: linear-gradient(to bottom, #2c3e50, #3498db); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-
-    /*background: #136a8a;  !* fallback for old browsers *!*/
-    /*background: -webkit-linear-gradient(to bottom, #267871, #136a8a);  !* Chrome 10-25, Safari 5.1-6 *!*/
-    /*background: linear-gradient(to bottom, #267871, #136a8a); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-
-    background: #360033;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #360033, #0b8793);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #360033, #0b8793); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
+    background: #f5e7f4;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #dce1ea, #337ab7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #dce1ea, #337ab7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 body {
     background-color: #f8f8f8;
-
 }
 
 dt {
@@ -90,15 +75,12 @@ dt {
 }
 
 .footer-table {
-    /*display: table;   !* Allow the centering to work *!*/
     margin: 0 0;
 }
 
 ul#footer-list {
-    /*min-width: 696px;*/
     list-style: none;
     padding-left: 0;
-    /*padding-top: 20px;*/
 }
 
 ul#footer-list li {
@@ -148,6 +130,29 @@ ul#footer-list li {
 }
 
 .navbar-inverse {
-    background-color: #000832;
-    border-color: #000832;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    margin-bottom: 10px;
+}
+
+.navbar-nav li a {
+    color: #1d1a1a;
+}
+
+.navbar-nav li.active a {
+    background-color: #337ab7 !important;
+}
+.navbar-nav li a{
+    transition: all 0.2s;
+}
+.navbar-nav li a:hover{
+    text-shadow: 5px 5px 5px black;
+}
+
+.navbar-brand {
+    color: #fff !important;
+    transition: all 0.2s;
+}
+.navbar-brand:hover{
+    text-shadow: 5px 5px 5px black;
 }
