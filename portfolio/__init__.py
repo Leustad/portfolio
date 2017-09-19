@@ -2,10 +2,19 @@ import os
 
 from flask import Flask
 from flask_bcrypt import Bcrypt
+from flask_assets import Environment, Bundle
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 print('__APP_SETTINGS__: {}'.format(os.environ['APP_SETTINGS']))
+
+bundles = {
+    'js_bundle': Bundle('js/main.js', filters='jsmin', output='gen/js_min.js'),
+    'css_bundle': Bundle('css/style.css', filters='cssmin', output='gen/style_min.css') 
+}
+
+assets = Environment(app)
+assets.register(bundles)
 
 bcrypt = Bcrypt(app)
 
