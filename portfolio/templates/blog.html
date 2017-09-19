@@ -6,7 +6,6 @@
         <small> - <a class="test-muted" href="/edit/{{ post_title }}">Edit</a></small>{% endif %}
     </h2>
     <br>
-{#    {{ post_body | safe }}#}
     {% for line in post_body %}
         {{ line.replace("b'", "").replace("'", "") | safe }}
     {% endfor %}

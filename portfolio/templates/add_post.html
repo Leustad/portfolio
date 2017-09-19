@@ -1,6 +1,10 @@
 {% extends '_base.html' %}
 {% block title %}Add Post{% endblock %}
 
+{% block script %}
+<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+{% endblock  %}
+
 {% block content %}
     <div class="container-fluid">
         <p class="text-right"><a href="/logout">>> Logout</a></p>
@@ -26,6 +30,9 @@
                     <div class="col-md-10">
                         {{ form.blog_body(class_="from-control" ) }}
                     </div>
+                    <script type="text/javascript">
+                        CKEDITOR.replace( 'blog_body' );
+                      </script>
                 </div>
 
                 <!-- Button (Double) -->
