@@ -5,5 +5,5 @@ __pycache__/
 .env
 .vscode/
 .webassets-cache
-.css
-.js
+.css/
+.js/
