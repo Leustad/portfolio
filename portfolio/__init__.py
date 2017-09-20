@@ -3,6 +3,7 @@ import os
 from flask import Flask
 from flask_bcrypt import Bcrypt
 from flask_assets import Environment, Bundle
+from flask_compress import Compress
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -17,6 +18,7 @@ assets = Environment(app)
 assets.register(bundles)
 
 bcrypt = Bcrypt(app)
+Compress(app)
 
 from portfolio.views.main.views import main_blueprint
 from portfolio.views.portfolio.views import portfolio_blueprint
