@@ -29,4 +29,6 @@ $(document).ready(function () {
     $(document).ready(function(){
         $('[data-toggle="name-tooltip"]').tooltip();
     });
+
+    $('#post img').addClass('img-responsive');
 })
