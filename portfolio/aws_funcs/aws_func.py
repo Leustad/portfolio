@@ -19,8 +19,6 @@ def upload_to_s3(title, content):
     try:
         s3 = _conn_to_s3()
 
-        print('bucket name: ', bucket_name)
-
         print('Uploading a post')
         s3.Object(bucket_name, title + '.md').put(Body=content)
 
