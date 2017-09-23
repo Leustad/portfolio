@@ -42,7 +42,7 @@ def get_all_posts():
     s3 = _conn_to_s3()
     b_name = s3.Bucket(bucket_name)
 
-    for s3_file in sorted(b_name.objects.all(), key=lambda k: k.last_modified):
+    for s3_file in sorted(b_name.objects.all(), key=lambda k: k.last_modified, reverse=True):
         p.append(s3_file)
     return p
 
