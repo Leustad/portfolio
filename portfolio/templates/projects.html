@@ -2,162 +2,171 @@
 {% block title %}Projects{% endblock %}
 
 {% block content %}
-    <h1 class="text-center text-primary">PROJECTS</h1>
-    {% include 'extras/info.html' %}
-    <div class="alert alert-info">
-        Sites hosted by <strong>Heroku</strong> are working with Free Dynos so they are probably sleeping. It takes a
-        few seconds to wake them back up.
-    </div>
-    <div class="alert alert-info">
-        Most of my pet projects have been developed on private BitBucket repositories. Recently I've added them to
-        GitHub for convenience. That's why they don't have much history on GitHub.
-    </div>
-    <div class="text-muted small">
-        *Sites might have sensitive data, therefore they are hosted on private repositories or I've just started them that
-        way.
-    </div>
+<h1 class="text-center text-primary">PROJECTS</h1>
+{% include 'extras/info.html' %}
+<div class="alert alert-info">
+    Sites hosted by <strong>Heroku</strong> are working with Free Dynos so they are probably sleeping. It takes a
+    few seconds to wake them back up.
+</div>
+<div class="alert alert-info">
+    Most of my pet projects have been developed on private BitBucket repositories. Recently I've added them to
+    GitHub for convenience. That's why they don't have much history on GitHub.
+</div>
+<div class="text-muted small">
+    *Sites might have sensitive data, therefore they are hosted on private repositories or I've just started them that
+    way.
+</div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://github.com/Leustad/portfolio" target="_blank">This Site</a></h2>
-                <a href="https://github.com/Leustad/portfolio">
-                    <p class="text-muted">
-                        <small>https://github.com/Leustad/portfolio</small>
-                    </p>
-                </a>
-                <p>My Portfolio and Blog.</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://vacationdiary.herokuapp.com/" target="_blank">Vacation Diary*</a></h2>
-                <a href="https://vacationdiary.herokuapp.com/">
-                    <p class="text-muted">
-                        <small>https://vacationdiary.herokuapp.com/</small>
-                    </p>
-                </a>
-                <p>A side project where I wanted a place to put my vacation experience.</p>
-                <p><img class="icon icons8-Construction-Worker" width="48" height="48"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACoUlEQVRoQ+2YjVEUQRCF30WARABEoEQgRoBEoBlQRqBkYAZABEoEYARgBJqBGIHWZ21XNcPM7Mxte+wV21UUVXvz8153v56eWWnLbbXl+LUQeOoILhGYawQ+S3op6aukb5Lunhpoaf9SCt1KeuUmnQxkZscjR+CFpF8J0l1J97NDL2XL6HtJ5w7sT0mH20TgQtK7xNt4Hz2cSYLQbCyXQgDccwi/D4K2TzeSEPnVHFjkCCBeQO5I+i0JTfDtk6RjB/pSEulWs31JHyW9HQax7ofIKJaqkJFgQ9v8SNK1Q0t55VvJAE81wwHeSEc0FZKKtZMYAPxBwuxPAqY2P6clm076mWMmZWJvK8GBxgFnhidLhxylOPW+zSMKlObJ1kuASuR1UDvgAImOcmba2jgBhIwozSirfMtZStaPaSkATeR6I5AKmfQhjXKGfvg9jQLep0j8dxHnQOXaDEBSGr3YbS4kODOsWhEVIhYCnk16I8AcgL7OsANcaI1vyaF1CFD+vhQWR7iUT3J8Iy34OgTADglSw7ccOU6WVvaf+h9KbF0CgEUP5PNpS6jdGMhQfkPa8ykEDBMVhbTxB9wYJ/QCickWQcBApGfEGDgETxpOskgCuRI7Bq7WiozN/fd7JIH0kGsBMPm2F0mgN4WM4CQ9RBKo9T4Glt7J91L+e6mnqkYyksCP4f5Q2/BgaCv8o4GNf1NoRzZCoEXAvoUuPRxAsOt8iIpAi4DTK2h6OcLTHHJEotmiCLQIOL07EDVIpO1I7Y7xiFgUgdr91zbN3d78C4gH1/yUGUUgfUvNpQD5nbsHpC+BzG1+uYgi0Jyz0QOfBYH0LSjaib3rPXB6SwQWAr0uHhn//CIQ7MDY5Vo0ELtj8GoLgWCHdi+3RKDbZcET/gIYrHQxVQVEEAAAAABJRU5ErkJggg==">Still
-                    <u>under construction !!</u></p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://excuse-me-plz.herokuapp.com/" target="_blank">Random Excuse Generator*</a></h2>
-                <a href="https://excuse-me-plz.herokuapp.com/">
-                    <p class="text-muted">
-                        <small>https://excuse-me-plz.herokuapp.com/</small>
-                    </p>
-                </a>
-                <p>Generates Random Excuses for Fun.</p>
-                <p><strong>GitHub: </strong><a
-                        href="https://github.com/Leustad/excuse-me">https://github.com/Leustad/excuse-me</a></p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://mytasksapp.herokuapp.com/" target="_blank">Good Old Tasks App*</a></h2>
-                <a href="https://mytasksapp.herokuapp.com/">
-                    <p class="text-muted">
-                        <small>https://mytasksapp.herokuapp.com/</small>
-                    </p>
-                </a>
-                <p>Everyone's favorite, classic tutorial app.</p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://github.com/Leustad/wallpaper-download" target="_blank">Wallpaper Downloader</a>
-                </h2>
-                <a href="https://github.com/Leustad/wallpaper-download">
-                    <p class="text-muted">
-                        <small>https://github.com/Leustad/wallpaper-download</small>
-                    </p>
-                </a>
-                <p>Downloads and Saves daily wallpaper from <a href="http://www.bing.com" target="_blank">Bing.com</a>
+<div class="row">
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://github.com/Leustad/portfolio" target="_blank">This Site</a></h2>
+            <a href="https://github.com/Leustad/portfolio">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/portfolio</small>
                 </p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://github.com/Leustad/image-manipulation" target="_blank">Image Resizer</a></h2>
-                <a href="https://github.com/Leustad/image-manipulation">
-                    <p class="text-muted">
-                        <small>https://github.com/Leustad/image-manipulation</small>
-                    </p>
-                </a>
-                <p>Simply resize the given images into the new size.</p>
-            </div>
+            </a>
+            <p>My Portfolio and Blog.</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://github.com/Leustad/reverse-shell" target="_blank">Reverse Shell</a></h2>
-                <a href="https://github.com/Leustad/reverse-shell">
-                    <p class="text-muted">
-                        <small>https://github.com/Leustad/reverse-shell</small>
-                    </p>
-                </a>
-                <p>Run shell commands at your target from your local.</p>
-                <p>Friendly hacking :)</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://github.com/Leustad/wpt-api-key-manager" target="_blank">WPT API Key Manager</a>
-                </h2>
-                <a href="https://github.com/Leustad/wpt-api-key-manager">
-                    <p class="text-muted">
-                        <small>https://github.com/Leustad/wpt-api-key-manager</small>
-                    </p>
-                </a>
-                <p>When you need to test your web site's various speed data, <a href="http://www.webpagetest.org"
-                                                                   target="_blank">Webpagetest</a> is the best solution
-                    and if
-                    you need to do a lot of testing, you will need a lot of API Keys to manage them.</p>
-                <p>This API will help you to manage them.</p>
-            </div>
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://vacationdiary.herokuapp.com/" target="_blank">Vacation Diary*</a></h2>
+            <a href="https://vacationdiary.herokuapp.com/">
+                <p class="text-muted">
+                    <small>https://vacationdiary.herokuapp.com/</small>
+                </p>
+            </a>
+            <p>A side project where I wanted a place to put my vacation experience.</p>
+            <p><img class="icon icons8-Construction-Worker" width="48" height="48"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACoUlEQVRoQ+2YjVEUQRCF30WARABEoEQgRoBEoBlQRqBkYAZABEoEYARgBJqBGIHWZ21XNcPM7Mxte+wV21UUVXvz8153v56eWWnLbbXl+LUQeOoILhGYawQ+S3op6aukb5Lunhpoaf9SCt1KeuUmnQxkZscjR+CFpF8J0l1J97NDL2XL6HtJ5w7sT0mH20TgQtK7xNt4Hz2cSYLQbCyXQgDccwi/D4K2TzeSEPnVHFjkCCBeQO5I+i0JTfDtk6RjB/pSEulWs31JHyW9HQax7ofIKJaqkJFgQ9v8SNK1Q0t55VvJAE81wwHeSEc0FZKKtZMYAPxBwuxPAqY2P6clm076mWMmZWJvK8GBxgFnhidLhxylOPW+zSMKlObJ1kuASuR1UDvgAImOcmba2jgBhIwozSirfMtZStaPaSkATeR6I5AKmfQhjXKGfvg9jQLep0j8dxHnQOXaDEBSGr3YbS4kODOsWhEVIhYCnk16I8AcgL7OsANcaI1vyaF1CFD+vhQWR7iUT3J8Iy34OgTADglSw7ccOU6WVvaf+h9KbF0CgEUP5PNpS6jdGMhQfkPa8ykEDBMVhbTxB9wYJ/QCickWQcBApGfEGDgETxpOskgCuRI7Bq7WiozN/fd7JIH0kGsBMPm2F0mgN4WM4CQ9RBKo9T4Glt7J91L+e6mnqkYyksCP4f5Q2/BgaCv8o4GNf1NoRzZCoEXAvoUuPRxAsOt8iIpAi4DTK2h6OcLTHHJEotmiCLQIOL07EDVIpO1I7Y7xiFgUgdr91zbN3d78C4gH1/yUGUUgfUvNpQD5nbsHpC+BzG1+uYgi0Jyz0QOfBYH0LSjaib3rPXB6SwQWAr0uHhn//CIQ7MDY5Vo0ELtj8GoLgWCHdi+3RKDbZcET/gIYrHQxVQVEEAAAAABJRU5ErkJggg==">Still
+                <u>under construction !!</u></p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://github.com/Leustad/structured_data-validator" target="_blank">Structured Data
-                    Validator</a></h2>
-                <a href="https://github.com/Leustad/structured_data-validator">
-                    <p class="text-muted">
-                        <small>https://github.com/Leustad/structured_data-validator</small>
-                    </p>
-                </a>
-                <p>Checks and validates <a href="http://schema.org/" target="_blank">structured data</a>.</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="project">
-                <h2>> <a href="https://github.com/Leustad/send_email" target="_blank">E-mail Sender</a></h2>
-                <a href="https://github.com/Leustad/send_email">
-                    <p class="text-muted">
-                        <small>https://github.com/Leustad/send_email</small>
-                    </p>
-                </a>
-                <p>Small Tool to send emails with attachments</p>
-            </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://excuse-me-plz.herokuapp.com/" target="_blank">Random Excuse Generator*</a></h2>
+            <a href="https://excuse-me-plz.herokuapp.com/">
+                <p class="text-muted">
+                    <small>https://excuse-me-plz.herokuapp.com/</small>
+                </p>
+            </a>
+            <p>Generates Random Excuses for Fun.</p>
+            <p><strong>GitHub: </strong><a
+                    href="https://github.com/Leustad/excuse-me">https://github.com/Leustad/excuse-me</a></p>
         </div>
     </div>
-    {#    <div class="row">#}
-    {#        <div class="col-md-6">#}
-    {#        </div>#}
-    {#        <div class="col-md-6">#}
-    {#        </div>#}
-    {#    </div>#}
-    {#    #}
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="http://pigeon.snowy.land" target="_blank">Pigeon Messenger</a></h2>
+            <a href="https://github.com/Leustad/Flask_SocketIO-Chat" target="_blank">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/Flask_SocketIO-Chat</small>
+                </p>
+            </a>
+            <p>Simple Chat app with Flask-SocketIO where every message is broadcasted.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://github.com/Leustad/wallpaper-download" target="_blank">Wallpaper Downloader</a>
+            </h2>
+            <a href="https://github.com/Leustad/wallpaper-download">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/wallpaper-download</small>
+                </p>
+            </a>
+            <p>Downloads and Saves daily wallpaper from <a href="http://www.bing.com" target="_blank">Bing.com</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://github.com/Leustad/image-manipulation" target="_blank">Image Resizer</a></h2>
+            <a href="https://github.com/Leustad/image-manipulation">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/image-manipulation</small>
+                </p>
+            </a>
+            <p>Simply resize the given images into the new size.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://github.com/Leustad/reverse-shell" target="_blank">Reverse Shell</a></h2>
+            <a href="https://github.com/Leustad/reverse-shell">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/reverse-shell</small>
+                </p>
+            </a>
+            <p>Run shell commands at your target from your local.</p>
+            <p>Friendly hacking :)</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://github.com/Leustad/wpt-api-key-manager" target="_blank">WPT API Key Manager</a>
+            </h2>
+            <a href="https://github.com/Leustad/wpt-api-key-manager">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/wpt-api-key-manager</small>
+                </p>
+            </a>
+            <p>When you need to test your web site's various speed data, <a href="http://www.webpagetest.org"
+                                                                            target="_blank">Webpagetest</a> is the best
+                solution
+                and if
+                you need to do a lot of testing, you will need a lot of API Keys to manage them.</p>
+            <p>This API will help you to manage them.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://github.com/Leustad/structured_data-validator" target="_blank">Structured Data
+                Validator</a></h2>
+            <a href="https://github.com/Leustad/structured_data-validator">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/structured_data-validator</small>
+                </p>
+            </a>
+            <p>Checks and validates <a href="http://schema.org/" target="_blank">structured data</a>.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://github.com/Leustad/send_email" target="_blank">E-mail Sender</a></h2>
+            <a href="https://github.com/Leustad/send_email">
+                <p class="text-muted">
+                    <small>https://github.com/Leustad/send_email</small>
+                </p>
+            </a>
+            <p>Small Tool to send emails with attachments</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="project">
+            <h2>> <a href="https://mytasksapp.herokuapp.com/" target="_blank">Good Old Tasks App*</a></h2>
+            <a href="https://mytasksapp.herokuapp.com/">
+                <p class="text-muted">
+                    <small>https://mytasksapp.herokuapp.com/</small>
+                </p>
+            </a>
+            <p>Everyone's favorite, classic tutorial app.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
 
-    {% include 'extras/projects_note.html' %}
+{% include 'extras/projects_note.html' %}
 {% endblock %}
