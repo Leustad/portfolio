@@ -25,10 +25,5 @@ $(document).ready(function () {
         return this.href == url;
     }).parent().addClass('active').parent().parent().addClass('active');
 
-    // Name Tooltip
-    $(document).ready(function(){
-        $('[data-toggle="name-tooltip"]').tooltip();
-    });
-
     $('#post img').addClass('img-responsive');
 })
